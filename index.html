@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: pink;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Hearts background */
+    body::before {
+      content: "💖 💕 💗 💓 💞 💖 💕 💗 💓 💞";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 40px;
+      opacity: 0.2;
+      text-align: center;
+      line-height: 80px;
+      pointer-events: none;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      max-width: 350px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    .buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .buttons button:hover {
+      background: #ff1f4d;
+    }
+
+    .cute-img {
+      width: 120px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <img class="cute-img" src="https://i.imgur.com/7QZ6FjC.png" alt="Cute Couple">
+    <h1 id="question">Shall we go on a date? 💕</h1>
+
+    <div class="buttons" id="buttons">
+      <button onclick="noClicked()">No 😢</button>
+      <button onclick="yesClicked()">Yes 😍</button>
+    </div>
+  </div>
+
+  <script>
+    function noClicked() {
+      // Reloads the page if No is clicked
+      location.reload();
+    }
+
+    function yesClicked() {
+      document.getElementById("question").innerHTML = 
+        "Where would we go? 🌸";
+
+      document.getElementById("buttons").innerHTML = `
+        <button onclick="beach()">🏖 Beach</button>
+        <button onclick="restaurant()">🍽 Restaurant</button>
+      `;
+    }
+
+    function beach() {
+      document.getElementById("question").innerHTML =
+        "Beach it is! 🌊💖";
+
+      document.getElementById("buttons").innerHTML = "";
+    }
+
+    function restaurant() {
+      document.getElementById("question").innerHTML =
+        "Romantic restaurant date! 🍷💖";
+
+      document.getElementById("buttons").innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
